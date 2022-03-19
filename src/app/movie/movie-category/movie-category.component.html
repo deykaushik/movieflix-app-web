@@ -1,15 +1,34 @@
-<app-accordian [title]="'Sort your movies'"
-               [isOpen]="true">
-  <ng-template accordian-content
-               class="sort-movie-selection">
-    Sort your movies by selecting from dropdown
-  </ng-template>
-</app-accordian>
+<div class="category-page">
+  <div class="category-filters-wrapper">
+    <div class="category-filters-inner">
+      <app-accordian [title]="'Sort your movies'"
+                     [isOpen]="true">
+        <ng-template accordian-content
+                     class="sort-movie-selection">
+          Sort your movies by selecting from dropdown
+        </ng-template>
+      </app-accordian>
 
-<app-accordian [title]="'Filters'"
-               [isOpen]="true">
-  <ng-template accordian-content
-               class="sort-movie-selection">
-    Sort your movies by selecting from dropdown
-  </ng-template>
-</app-accordian>
+      <app-accordian [title]="'Genres'"
+                     [isOpen]="true">
+        <ng-template accordian-content>
+          <div class="movie-genres-chips">
+            <span class="chip"
+                  *ngFor="let genre of genresList">{{genre.name}}</span>
+          </div>
+        </ng-template>
+      </app-accordian>
+
+      <div app-radio-group
+           [groupName]="'show-me'"
+           (onSelection)="onRadioSelection($event)">
+        <div app-radio
+             [value]="'everything'">Everything</div>
+        <div app-radio
+             [value]="'not-seen'">Movies I Haven't Seen</div>
+        <div app-radio
+             [value]="'already-seen'">Movies I Have Seen</div>
+      </div>
+    </div>
+  </div>
+</div>

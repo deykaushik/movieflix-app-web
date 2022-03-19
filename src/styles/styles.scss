@@ -1,9 +1,12 @@
 @import "./typography";
 @import "./variables";
 @import "./reset";
+@import "./common";
 @import "./header";
 @import "./layout";
 @import "./accordian";
+
+@import "./category";
 
 html {
   font-family: $font-family-default;
@@ -11,7 +14,7 @@ html {
 
 body {
   font-family: $font-family-Averta;
-  font-size: $size-16;
+  font-size: $size-14;
   font-weight: $font-weight-regular;
   margin: 0;
   color: #333;

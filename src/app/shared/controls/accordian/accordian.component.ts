@@ -20,9 +20,9 @@ import { AccordianService } from './accordian.service';
 @Component({
   selector: 'app-accordian',
   templateUrl: './accordian.component.html',
+  styleUrls: ['./accordian.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./accordian.component.scss'],
   host: {
     class: 'accordian',
   },
