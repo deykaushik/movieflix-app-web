@@ -1,0 +1,19 @@
+<div class="accordian-title"
+     [class.open]="isOpen">
+  <ng-container *ngTemplateOutlet="accrodianTitleTemp || defaultTemplate"></ng-container>
+</div>
+<div [@collapseMotion]="isOpen ? 'expanded' : 'hidden'"
+     class="accordian-content-wrapper">
+  <div class="accordian-content"
+       *ngIf="accordianContentTemp">
+    <ng-container *ngTemplateOutlet="accordianContentTemp"></ng-container>
+  </div>
+</div>
+
+
+<ng-template #defaultTemplate>
+  <span class="accordian-title-text">{{title}}</span>
+  <span accordian-toggle
+        [accordian]="this"
+        class="accordian-toggle"></span>
+</ng-template>
