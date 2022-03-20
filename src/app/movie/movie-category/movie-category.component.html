@@ -19,16 +19,12 @@
         </ng-template>
       </app-accordian>
 
-      <div app-radio-group
-           [groupName]="'show-me'"
-           (onSelection)="onRadioSelection($event)">
-        <div app-radio
-             [value]="'everything'">Everything</div>
-        <div app-radio
-             [value]="'not-seen'">Movies I Haven't Seen</div>
-        <div app-radio
-             [value]="'already-seen'">Movies I Have Seen</div>
-      </div>
+      <app-radio-group [radioGroupName]="'show-me'"
+                       [alignment]="'vertical'">
+        <app-radio [value]="'everything'">Everything</app-radio>
+        <app-radio [value]="'not-seen'">Movies i haven't seen</app-radio>
+        <app-radio [value]="'seen'">Movies i haven seen</app-radio>
+      </app-radio-group>
     </div>
   </div>
 </div>

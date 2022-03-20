@@ -1,19 +1,19 @@
-import {
-  Component,
-  Directive,
-  ElementRef,
-  Input,
-  NgZone,
-  OnInit,
-} from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnInit } from '@angular/core';
 import { fromEvent, tap } from 'rxjs';
 import { RadioGroupService } from './radio-group.service';
 
-@Directive({
-  selector: '[app-radio]',
+@Component({
+  selector: 'app-radio',
+  templateUrl: './radio.component.html',
+  host: {
+    class: 'radio-item',
+    '[class.checked]': 'isChecked',
+    '[class.disabled]': 'isDisabled',
+    '[attr.name]': 'groupName',
+  },
 })
 export class RadioComponent implements OnInit {
-  @Input() groupName!: string;
+  @Input() radioGroupName!: string;
   @Input() isChecked = false;
   @Input() value!: string;
   @Input() isDisabled = false;
@@ -29,6 +29,13 @@ export class RadioComponent implements OnInit {
   ngOnInit(): void {
     this.initNameChangeListner();
     this.initRadioClickListner();
+    this.initValueChangeListner();
+  }
+
+  initValueChangeListner() {
+    this.radioGroupService.valueChange$.subscribe((value) => {
+      this.isChecked = this.value === value;
+    });
   }
 
   initRadioClickListner() {
@@ -42,8 +49,8 @@ export class RadioComponent implements OnInit {
   }
 
   initNameChangeListner() {
-    this.radioGroupService.nameChange$
-      .pipe(tap((name) => console.log(name)))
-      .subscribe((name: string) => (this.groupName = name));
+    this.radioGroupService.nameChange$.subscribe(
+      (name: string) => (this.radioGroupName = name)
+    );
   }
 }
