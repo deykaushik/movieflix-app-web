@@ -1,0 +1,12 @@
+<div class="product-card">
+  <div class="product-card-inner">
+    <div class="product-image"
+         [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'}">
+
+    </div>
+    <div class="product-desc">
+      <div class="name">{{product?.name}}</div>
+      <div class="release">{{product?.releaseDate}}</div>
+    </div>
+  </div>
+</div>

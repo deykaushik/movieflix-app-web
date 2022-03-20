@@ -1,0 +1,11 @@
+<div class="category-banner">
+  <div class="banner-title">Most Polular Movies this Week</div>
+  <div class="banner-message">
+    <div class="banner-message-text">
+      Discover the top, most popular movies available now! Across theaters, streaming, and on-demand
+    </div>
+  </div>
+</div>
+<div class="category-page">
+  <app-category-grid [categoryItems]="$any(popularMovies$ | async)"></app-category-grid>
+</div>

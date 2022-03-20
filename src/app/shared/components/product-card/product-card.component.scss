@@ -1,0 +1,48 @@
+@import "./../../../../styles/variables";
+
+.product-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.product-image img {
+  width: 100%;
+}
+
+.product-card-inner {
+  position: relative;
+  min-height: 390px;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.product-image {
+  background-color: #efefef;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.product-desc {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgb(255 255 255 / 72%);
+}
+
+.name {
+  font-weight: $font-weight-bold;
+  font-size: $size-20;
+  margin-bottom: 15px;
+}

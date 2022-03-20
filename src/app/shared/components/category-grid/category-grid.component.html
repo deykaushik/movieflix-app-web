@@ -1,0 +1,5 @@
+<div class="category-grid"
+     [ngClass]="{'list-view':listView, 'grid-view':!listView}">
+  <app-product-card [product]="movie"
+                    *ngFor="let movie of categoryItems"></app-product-card>
+</div>

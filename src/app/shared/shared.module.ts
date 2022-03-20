@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SelectModule } from './controls/select/select.module';
-import { AccordianModule } from './controls/accordian/accordian.module';
-import { RadioGroupModule } from './controls/radio-group/radio-group.module';
+import { AccordianModule, RadioGroupModule } from './controls';
+import { CategoryGridComponent, ProductCardComponent } from './components';
 
-const SharedControlModules = [SelectModule, AccordianModule, RadioGroupModule];
+const SharedControlModules = [AccordianModule, RadioGroupModule];
+const SharedComponents = [CategoryGridComponent, ProductCardComponent];
 
 @NgModule({
-  declarations: [],
+  declarations: [...SharedComponents],
   imports: [CommonModule, ...SharedControlModules],
-  exports: [...SharedControlModules],
+  exports: [...SharedControlModules, ...SharedComponents],
 })
 export class SharedModule {}
