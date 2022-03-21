@@ -15,7 +15,9 @@ export class MovieApiService {
   getPopularMovies$(): Observable<IMovie[]> {
     return this.httpApiBase
       .get<IMovieResponse>(this.popularMoviesUrl)
-      .pipe(map((response: IMovieResponse) => response.results as IMovie[]));
+      .pipe(
+        map((response: IMovieResponse) => (response.results as IMovie[]) || [])
+      );
   }
 
   getConfigs$(): Observable<IMDBConfig> {

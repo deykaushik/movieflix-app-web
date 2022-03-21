@@ -1,0 +1,72 @@
+.banner {
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+}
+
+.banner-title {
+  max-width: 850px;
+  font-size: $size-32;
+  font-weight: $font-weight-bold;
+}
+
+.banner-message {
+  max-width: 600px;
+  font-size: $size-18;
+  font-weight: $font-weight-regular;
+  line-height: 1.5;
+}
+
+.banner-title,
+.banner-message {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner-title,
+.banner-message {
+  grid-column: col-start / span 12;
+
+  @media screen and (min-width: 768px) {
+    grid-column: 2 col-start / span 10;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 3 col-start / span 8;
+  }
+}
+
+.heading {
+  font-size: $size-30;
+  margin-bottom: $size-30;
+  font-weight: $font-weight-bold;
+}
+
+.page-gutter-wrapper {
+  padding: 15px 0px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 0px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 30px 0px;
+  }
+}
+
+.grid-view {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, [col-start] 1fr);
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, [col-start] 1fr);
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, [col-start] 1fr);
+  }
+
+  @media screen and (min-width: 1600px) {
+    grid-template-columns: repeat(5, [col-start] 1fr);
+  }
+}

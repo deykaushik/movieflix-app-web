@@ -1,0 +1,9 @@
+<div class="app-page-container">
+    <div *ngIf="withContentWrapper; else ngContentTemplate"
+         class="app-page-content-wrapper">
+        <ng-template [ngTemplateOutlet]="ngContentTemplate"></ng-template>
+    </div>
+</div>
+<ng-template #ngContentTemplate>
+    <ng-content></ng-content>
+</ng-template>

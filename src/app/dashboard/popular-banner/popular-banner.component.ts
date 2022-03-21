@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { MovieService } from '../../shared/services/movie.service';
+import { Component, OnInit } from '@angular/core';
+import { map, reduce, Subject, take, takeUntil } from 'rxjs';
+import { IProductCard, MovieService } from 'src/app/shared';
+
 @Component({
-  selector: 'app-popular-movies',
-  templateUrl: './popular-movies.component.html',
+  selector: 'app-popular-banner',
+  templateUrl: './popular-banner.component.html',
   styles: [],
 })
-export class PopularMoviesComponent implements OnInit, OnDestroy {
+export class PopularBannerComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
   constructor(private movieService: MovieService) {}

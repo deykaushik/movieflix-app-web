@@ -1,0 +1,19 @@
+<section class="banner dashboard-banner">
+  <app-page-container [withContentWrapper]="false">
+    <div class="banner-title">Most Polular Movies this Week</div>
+    <div class="banner-message">
+      <div class="banner-message-text">
+        Discover the top, most popular movies available now! Across theaters, streaming, and on-demand
+      </div>
+    </div>
+  </app-page-container>
+
+</section>
+<section class="slider-wrapper dashboard-slider-wrapper">
+  <app-page-container>
+    <div class="swiper-grid grid-view">
+      <app-product-card [product]="movie"
+                        *ngFor="let movie of popularMovies$ | async"></app-product-card>
+    </div>
+  </app-page-container>
+</section>

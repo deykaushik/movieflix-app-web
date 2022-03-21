@@ -3,8 +3,10 @@
 .product-card {
   background-color: white;
   border-radius: 20px;
-  padding: 20px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  padding: 18px;
+  box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;
+  max-width: 368px;
+  cursor: pointer;
 }
 
 .product-image img {
@@ -13,14 +15,37 @@
 
 .product-card-inner {
   position: relative;
-  min-height: 390px;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
   z-index: 1;
+  min-height: 60vw;
+
+  @media screen and (min-width: 568px) {
+    min-height: 50vw;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-height: 40vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 32vw;
+  }
+
+  @media screen and (min-width: 1200px) {
+    min-height: 28vw;
+  }
+
+  @media screen and (min-width: 1400px) {
+    min-height: 24vw;
+  }
+
+  @media screen and (min-width: 1600px) {
+    min-height: 20vw;
+  }
 }
 
 .product-image {
-  background-color: #efefef;
   position: absolute;
   left: 0;
   top: 0;
@@ -29,6 +54,7 @@
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top;
 }
 
 .product-desc {
@@ -43,6 +69,7 @@
 
 .name {
   font-weight: $font-weight-bold;
-  font-size: $size-20;
-  margin-bottom: 15px;
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: clamp(5px, 2vw, 10px);
+  line-height: 1.5;
 }

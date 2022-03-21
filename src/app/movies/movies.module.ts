@@ -4,11 +4,10 @@ import { MoviesRoutingModule } from './movies.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
-import { MovieService } from './movie.service';
+import { MovieService } from '../shared/services/movie.service';
 
 @NgModule({
   imports: [CommonModule, MoviesRoutingModule, HttpClientModule, SharedModule],
   declarations: [PopularMoviesComponent],
-  providers: [MovieService],
 })
 export class MoviesModule {}

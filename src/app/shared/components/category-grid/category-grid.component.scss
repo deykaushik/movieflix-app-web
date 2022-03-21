@@ -1,7 +1,0 @@
-.category-grid {
-  &.grid-view {
-    display: grid;
-    grid-template-columns: repeat(4, [col-start] 1fr);
-    gap: 30px;
-  }
-}

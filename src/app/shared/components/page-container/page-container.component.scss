@@ -1,0 +1,12 @@
+.app-page-container {
+  padding: 0px clamp(10px, 3vw, 40px);
+  display: grid;
+  gap: clamp(10px, 2vw, 30px);
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  max-width: 1600px;
+  margin: 0px auto;
+}
+
+.app-page-content-wrapper {
+  grid-column: col-start / span 12;
+}
