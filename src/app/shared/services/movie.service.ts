@@ -9,15 +9,16 @@ import { map, Observable, take } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class MovieService {
   imageSize = Constants.imageSizes.W300;
+  originalImageSize = Constants.imageSizes.ORIGINAL;
 
   constructor(private moviesApiService: MovieApiService) {}
 
-  popularMovies$: Observable<IProductCard[]> = this.moviesApiService
-    .getPopularMovies$()
-    .pipe(map((movies) => movies.map((movie) => this.movieMapperFn(movie))));
+  popularMovies$: Observable<IMovie[]> =
+    this.moviesApiService.getPopularMovies$();
 
   movieMapperFn(movie: IMovie): IProductCard {
     const movieCard: IProductCard = {
+      id: movie.id,
       name: movie.original_title,
       imageUrl: CommonUtility.getFullImagePath(
         this.imageSize,

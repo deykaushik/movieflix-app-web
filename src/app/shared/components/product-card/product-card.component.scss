@@ -7,6 +7,7 @@
   box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;
   max-width: 368px;
   cursor: pointer;
+  position: relative;
 }
 
 .product-image img {
@@ -18,7 +19,7 @@
   border-radius: 6px;
   overflow: hidden;
   z-index: 1;
-  min-height: 60vw;
+  min-height: 90vw;
 
   @media screen and (min-width: 568px) {
     min-height: 50vw;
@@ -72,4 +73,17 @@
   font-size: clamp(16px, 2vw, 20px);
   margin-bottom: clamp(5px, 2vw, 10px);
   line-height: 1.5;
+}
+
+.ratings {
+  position: absolute;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 10px;
+  right: 30px;
+  top: 30px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: rgb(255 255 255 / 72%);
+  line-height: 1;
 }

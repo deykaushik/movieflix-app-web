@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardShellComponent } from './dashboard-shell.component';
+import { MoviesLandingComponent } from './movies-landing.component';
 
-describe('DashboardShellComponent', () => {
-  let component: DashboardShellComponent;
-  let fixture: ComponentFixture<DashboardShellComponent>;
+describe('MoviesLandingComponent', () => {
+  let component: MoviesLandingComponent;
+  let fixture: ComponentFixture<MoviesLandingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardShellComponent ]
+      declarations: [ MoviesLandingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardShellComponent);
+    fixture = TestBed.createComponent(MoviesLandingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

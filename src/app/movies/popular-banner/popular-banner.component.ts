@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map, reduce, Subject, take, takeUntil } from 'rxjs';
+import { map, reduce, Subject, take, takeUntil, tap } from 'rxjs';
 import { IProductCard, MovieService } from 'src/app/shared';
 
 @Component({
@@ -13,7 +13,15 @@ export class PopularBannerComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   popularMovies$ = this.movieService.popularMovies$.pipe(
-    takeUntil(this.destroy$)
+    takeUntil(this.destroy$),
+    tap((movies) => console.log(movies)),
+    map((movies) =>
+      movies.sort((first, second) => second.vote_average - first.vote_average)
+    ),
+    map((movies) =>
+      movies.map((movie) => this.movieService.movieMapperFn(movie))
+    ),
+    map((movies) => movies.slice(0, 5))
   );
 
   ngOnInit(): void {}

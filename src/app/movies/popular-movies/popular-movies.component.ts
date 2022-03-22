@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { map, Subject, takeUntil } from 'rxjs';
 import { MovieService } from '../../shared/services/movie.service';
 @Component({
   selector: 'app-popular-movies',
@@ -12,7 +12,10 @@ export class PopularMoviesComponent implements OnInit, OnDestroy {
   constructor(private movieService: MovieService) {}
 
   popularMovies$ = this.movieService.popularMovies$.pipe(
-    takeUntil(this.destroy$)
+    takeUntil(this.destroy$),
+    map((movies) =>
+      movies.map((movie) => this.movieService.movieMapperFn(movie))
+    ),
   );
 
   ngOnInit(): void {}
