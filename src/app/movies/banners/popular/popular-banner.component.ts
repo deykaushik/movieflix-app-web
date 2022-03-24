@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { map, reduce, Subject, take, takeUntil, tap } from 'rxjs';
 import { IProductCard, MovieService } from 'src/app/shared';
 
 @Component({
   selector: 'app-popular-banner',
   templateUrl: './popular-banner.component.html',
+  encapsulation: ViewEncapsulation.None,
   styles: [],
 })
 export class PopularBannerComponent implements OnInit {
@@ -20,8 +21,7 @@ export class PopularBannerComponent implements OnInit {
     ),
     map((movies) =>
       movies.map((movie) => this.movieService.movieMapperFn(movie))
-    ),
-    map((movies) => movies.slice(0, 5))
+    )
   );
 
   ngOnInit(): void {}

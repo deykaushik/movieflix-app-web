@@ -1,0 +1,31 @@
+<!-- <swiper class="mySwiper"
+        [slidesPerView]="5"
+        [spaceBetween]="20"
+        [pagination]="{
+          clickable: true
+        }">
+  
+</swiper> -->
+
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div *ngFor="let item of carouselItems"
+         class="swiper-slide">
+      <ng-template [ngTemplateOutlet]="carouselItemsTemp"
+                   [ngTemplateOutletContext]="{item}"></ng-template>
+    </div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>

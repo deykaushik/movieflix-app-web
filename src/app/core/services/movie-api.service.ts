@@ -9,12 +9,21 @@ export class MovieApiService {
   baseApiUrl = environment.tmdbBaseUrl;
   popularMoviesUrl = `${this.baseApiUrl}/movie/popular`;
   configurationUrl = `${this.baseApiUrl}/configuration`;
+  topRatedUrl = `${this.baseApiUrl}/movie/top_rated`;
 
   constructor(private httpApiBase: HttpBaseService) {}
 
   getPopularMovies$(): Observable<IMovie[]> {
     return this.httpApiBase
       .get<IMovieResponse>(this.popularMoviesUrl)
+      .pipe(
+        map((response: IMovieResponse) => (response.results as IMovie[]) || [])
+      );
+  }
+
+  getTopRatesMovies$(): Observable<IMovie[]> {
+    return this.httpApiBase
+      .get<IMovieResponse>(this.topRatedUrl)
       .pipe(
         map((response: IMovieResponse) => (response.results as IMovie[]) || [])
       );

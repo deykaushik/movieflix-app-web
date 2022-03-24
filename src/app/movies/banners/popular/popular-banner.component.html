@@ -1,6 +1,6 @@
 <section class="banner dashboard-banner">
   <app-page-container [withContentWrapper]="false">
-    <div class="banner-title">Most Polular Movies</div>
+    <div class="banner-title">What's Popular</div>
     <div class="banner-message">
       <div class="banner-message-text">
         Discover the top, most popular movies available now! Across theaters, streaming, and on-demand
@@ -11,9 +11,13 @@
 </section>
 <section class="slider-wrapper dashboard-slider-wrapper">
   <app-page-container>
-    <div class="swiper-grid grid-view">
-      <app-product-card [product]="movie"
-                        *ngFor="let movie of popularMovies$ | async"></app-product-card>
-    </div>
+    <ng-container *ngIf="popularMovies$ | async as popularMovies">
+      <app-carousel [carouselItems]="popularMovies">
+        <ng-template carousel-item
+                     let-item="item">
+          <app-product-card [product]="item"></app-product-card>
+        </ng-template>
+      </app-carousel>
+    </ng-container>
   </app-page-container>
 </section>

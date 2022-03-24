@@ -1,0 +1,23 @@
+<section class="banner dashboard-banner">
+    <app-page-container [withContentWrapper]="false">
+        <div class="banner-title">Top rated</div>
+        <div class="banner-message">
+            <div class="banner-message-text">
+                Discover the top rated movies available on TMDB
+            </div>
+        </div>
+    </app-page-container>
+
+</section>
+<section class="slider-wrapper dashboard-slider-wrapper">
+    <app-page-container>
+        <ng-container *ngIf="topRatedMovies$ | async as topRatedMovies">
+            <app-carousel [carouselItems]="topRatedMovies">
+                <ng-template carousel-item
+                             let-item="item">
+                    <app-product-card [product]="item"></app-product-card>
+                </ng-template>
+            </app-carousel>
+        </ng-container>
+    </app-page-container>
+</section>

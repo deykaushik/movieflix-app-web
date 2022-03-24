@@ -1,6 +1,6 @@
 .banner {
   padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-bottom: 2vw;
 }
 
 .banner-title {
@@ -81,4 +81,8 @@
   @media screen and (min-width: 1600px) {
     grid-template-columns: repeat(5, [col-start] 1fr);
   }
+}
+
+.dashboard-slider-wrapper {
+  margin-bottom: 60px;
 }

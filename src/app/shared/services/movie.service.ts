@@ -16,6 +16,9 @@ export class MovieService {
   popularMovies$: Observable<IMovie[]> =
     this.moviesApiService.getPopularMovies$();
 
+  topRatedMovies$: Observable<IMovie[]> =
+    this.moviesApiService.getTopRatesMovies$();
+
   movieMapperFn(movie: IMovie): IProductCard {
     const movieCard: IProductCard = {
       id: movie.id,
