@@ -60,26 +60,18 @@
 .grid-view {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(1, [col-start] 1fr);
+  grid-template-columns: repeat(2, [col-start] 1fr);
 
   @media screen and (min-width: 568px) {
-    grid-template-columns: repeat(2, [col-start] 1fr);
-  }
-
-  @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, [col-start] 1fr);
   }
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(3, [col-start] 1fr);
-  }
-
-  @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(4, [col-start] 1fr);
   }
 
-  @media screen and (min-width: 1600px) {
-    grid-template-columns: repeat(5, [col-start] 1fr);
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(6, [col-start] 1fr);
   }
 }
 
